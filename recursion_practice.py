@@ -47,8 +47,20 @@ def factorial(num, count_num):
         print(count_num)
     pass
 
+
 def is_palendromic(string):
-    pass
+  def reverse_recursion(string):
+    length=len(string)
+    if length == 0:
+      if string==normal_string:
+        return("Yes",string,"is palendromic")
+      else:
+        return("No",string,"is not palendromic")
+    else:
+      normal_string=string
+      length=length-1
+      return reverse_recursion(string[1:]) + string[0]
+      
 
 #try to complete a recursive linear search, returning the index of the item, or -1
 def linear_search_recursive(items, start_index, end_index, search_item):
@@ -114,4 +126,3 @@ if result != -1:
     print(f"Item {item_to_search} found at index {result}")
 else:
     print(f"Item {item_to_search} not found in the list.")
-
