@@ -47,16 +47,28 @@ def factorial(num, count_num):
         print(count_num)
     pass
 
-
 def is_palendromic(string):
     pass
 
 #try to complete a recursive linear search, returning the index of the item, or -1
 def linear_search_recursive(items, start_index, end_index, search_item):
-    #base cases
-    #recursive case:
+    # Base cases
+    if start_index > end_index:
+        # Item not found
+        return -1
 
-    pass
+    if items[start_index] == search_item:
+        # Item found at the current index
+        return start_index
+
+    # Recursive case
+    return linear_search_recursive(items, start_index + 1, end_index, search_item)
+
+# Example usage
+
+
+result = linear_search_recursive(items, start_index, end_index, item_to_search)
+
 
 
 def binary_search_recursive(items, start_index, end_index, search_item):
@@ -88,7 +100,18 @@ If p > q, the gcd of p and q is the same as the gcd of q and p % q."""
 #print(pos_dec_to_binary(1234,[]))
 ##or, neater (using a generator expression (outside scope of A-level CS))
 #print("".join(str(i) for i in pos_dec_to_binary(1234,[])))
-#
-#print (factorial(4))
+#print(fibonacci(10))
+#print (factorial(4, 4))
 #countdown(10)
 #print(binary_search_recursive([1,2,3,4,54,56,58],0,6,1))
+#Linear Search:
+items = [9, 4, 7, 2, 1, 8, 5, 6, 3]
+start_index = 0
+end_index = len(items) - 1
+item_to_search = 5
+result = linear_search_recursive(items, start_index, end_index, item_to_search)
+if result != -1:
+    print(f"Item {item_to_search} found at index {result}")
+else:
+    print(f"Item {item_to_search} not found in the list.")
+
