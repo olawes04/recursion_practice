@@ -12,9 +12,12 @@ def pos_dec_to_binary(decimal,bit_list):
     
 #why does this not work? Fix it!
 def countdown(number):
-    print(number)
-    time.sleep(1)
-    countdown(number-1)
+    if number<0:
+        pass
+    else:
+        print(number)
+        time.sleep(1)
+        countdown(number-1)
 
 
 #try to complete this
@@ -24,20 +27,26 @@ def fibonacci(n):
         return 0
     elif n == 1:
         return 1
+    else:
+        return(fibonacci(n-1)+fibonacci(n-2))
     #recursive case: the fibonacci number is the sum of the previous 2
 
 #triangular numbers
 def triangular(n):
-    #base case
-    #recursive case
-    pass
+    if n==1:
+        return 1
+    else:
+        return(n+triangular(n-1))
+    print (triangular(10))
 
 #try to complete this
-def factorial(input_number):
-    #base case
-    
-    #recursive case
+def factorial(num, count_num):
+    for i in range (num-1):
+        count_num=count_num*(num-1)
+        num=num-1
+        print(count_num)
     pass
+
 
 def is_palendromic(string):
     pass
