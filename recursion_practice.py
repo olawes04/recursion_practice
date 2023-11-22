@@ -1,5 +1,8 @@
 import time
-
+items=[1,2,3,4,54,56,58]
+start_index=0
+end_index=6
+search_item=1
 #Converts a positive number to a binary represented as a list of 0s and 1s.
 #using the algorithm of divide by 2 and put the remainder in the small column then start again with the quotient as input
 def pos_dec_to_binary(decimal,bit_list):
@@ -79,28 +82,30 @@ def linear_search_recursive(items, start_index, end_index, search_item):
 # Example usage
 
 
-result = linear_search_recursive(items, start_index, end_index, item_to_search)
+result = linear_search_recursive(items, start_index, end_index, search_item)
 
 
 
 def binary_search_recursive(items, start_index, end_index, search_item):
-  """ a recursive binary search, returning the index of the item, or -1 if not in list. 
-  The start index should be 0 and the end index should be 1 less than the length of the list."""
-  # base case 1: item not in list
+    if start_index > end_index:
+        return -1
   # TODO use start_index and end_index to find out if the sublist is of size 0 or less and return appropriate int
-  #if ______:
-  #  return _____
+    if start_index>=end_index :
+        return ("Index is too small")
+
   # TODO work out middle index of the sublist
-  # middle_index = 
+    middle_index = (start_index + end_index)
   # TODO from that, set current item
-  #current_item = 
+    current_item = items[middle_index]
   # TODO base case 2: find out if current item is the search item and return the appropriate index
+    if current_item==search_item:
+        return middle_index
   # recursive cases: do a BS on a subset of the list by tweaking appropriate start or end index
-  #if current_item < search_item:
-  #  return binary_search_recursive(items, ????????????, ????????????, search_item)
-  #else:
-  #  return binary_search_recursive(items, ????????????, ????????????, search_item)
-  pass
+    if current_item < search_item:
+        return binary_search_recursive(items, middle_index+1, end_index, search_item)
+    else:
+        return binary_search_recursive(items, middle_index-1, end_index, search_item)
+
 
 """EXTENSION: Euclid's algorithm. The greatest common divisor (gcd) of two positive integers is the largest integer
 that divides evenly into both of them. For example, the gcd(102, 68) = 34.
@@ -115,14 +120,15 @@ If p > q, the gcd of p and q is the same as the gcd of q and p % q."""
 #print(fibonacci(10))
 #print (factorial(4, 4))
 #countdown(10)
-#print(binary_search_recursive([1,2,3,4,54,56,58],0,6,1))
+print(binary_search_recursive([1,2,3,4,54,56,58],0,6,1))
 #Linear Search:
-items = [9, 4, 7, 2, 1, 8, 5, 6, 3]
+"""items = [9, 4, 7, 2, 1, 8, 5, 6, 3]
 start_index = 0
 end_index = len(items) - 1
-item_to_search = 5
-result = linear_search_recursive(items, start_index, end_index, item_to_search)
+search_item = 5
+result = linear_search_recursive(items, start_index, end_index, search_item)
 if result != -1:
-    print(f"Item {item_to_search} found at index {result}")
+    print(f"Item {search_item} found at index {result}")
 else:
-    print(f"Item {item_to_search} not found in the list.")
+    print(f"Item {search_item} not found in the list.")"""
+
